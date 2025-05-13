@@ -173,6 +173,7 @@ exports.Prisma.UserScalarFieldEnum = {
   status: 'status',
   timezone: 'timezone',
   stripe_customer_id: 'stripe_customer_id',
+  times: 'times',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   subscriptionId: 'subscriptionId'

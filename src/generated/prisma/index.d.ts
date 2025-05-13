@@ -6211,6 +6211,7 @@ export namespace Prisma {
     status: number
     timezone: number
     stripe_customer_id: number
+    times: number
     createdAt: number
     updatedAt: number
     subscriptionId: number
@@ -6261,6 +6262,7 @@ export namespace Prisma {
     status?: true
     timezone?: true
     stripe_customer_id?: true
+    times?: true
     createdAt?: true
     updatedAt?: true
     subscriptionId?: true
@@ -6350,6 +6352,7 @@ export namespace Prisma {
     status: boolean | null
     timezone: string | null
     stripe_customer_id: string | null
+    times: string[]
     createdAt: Date
     updatedAt: Date
     subscriptionId: string | null
@@ -6383,6 +6386,7 @@ export namespace Prisma {
     status?: boolean
     timezone?: boolean
     stripe_customer_id?: boolean
+    times?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     subscriptionId?: boolean
@@ -6407,6 +6411,7 @@ export namespace Prisma {
     status?: boolean
     timezone?: boolean
     stripe_customer_id?: boolean
+    times?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     subscriptionId?: boolean
@@ -6423,6 +6428,7 @@ export namespace Prisma {
     status?: boolean
     timezone?: boolean
     stripe_customer_id?: boolean
+    times?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     subscriptionId?: boolean
@@ -6439,12 +6445,13 @@ export namespace Prisma {
     status?: boolean
     timezone?: boolean
     stripe_customer_id?: boolean
+    times?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     subscriptionId?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "image" | "address" | "phone" | "status" | "timezone" | "stripe_customer_id" | "createdAt" | "updatedAt" | "subscriptionId", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "image" | "address" | "phone" | "status" | "timezone" | "stripe_customer_id" | "times" | "createdAt" | "updatedAt" | "subscriptionId", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     subscription?: boolean | User$subscriptionArgs<ExtArgs>
     services?: boolean | User$servicesArgs<ExtArgs>
@@ -6480,6 +6487,7 @@ export namespace Prisma {
       status: boolean | null
       timezone: string | null
       stripe_customer_id: string | null
+      times: string[]
       createdAt: Date
       updatedAt: Date
       subscriptionId: string | null
@@ -6923,6 +6931,7 @@ export namespace Prisma {
     readonly status: FieldRef<"User", 'Boolean'>
     readonly timezone: FieldRef<"User", 'String'>
     readonly stripe_customer_id: FieldRef<"User", 'String'>
+    readonly times: FieldRef<"User", 'String[]'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
     readonly subscriptionId: FieldRef<"User", 'String'>
@@ -11928,6 +11937,7 @@ export namespace Prisma {
     status: 'status',
     timezone: 'timezone',
     stripe_customer_id: 'stripe_customer_id',
+    times: 'times',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     subscriptionId: 'subscriptionId'
@@ -12390,6 +12400,7 @@ export namespace Prisma {
     status?: BoolNullableFilter<"User"> | boolean | null
     timezone?: StringNullableFilter<"User"> | string | null
     stripe_customer_id?: StringNullableFilter<"User"> | string | null
+    times?: StringNullableListFilter<"User">
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     subscriptionId?: StringNullableFilter<"User"> | string | null
@@ -12413,6 +12424,7 @@ export namespace Prisma {
     status?: SortOrderInput | SortOrder
     timezone?: SortOrderInput | SortOrder
     stripe_customer_id?: SortOrderInput | SortOrder
+    times?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     subscriptionId?: SortOrderInput | SortOrder
@@ -12439,6 +12451,7 @@ export namespace Prisma {
     status?: BoolNullableFilter<"User"> | boolean | null
     timezone?: StringNullableFilter<"User"> | string | null
     stripe_customer_id?: StringNullableFilter<"User"> | string | null
+    times?: StringNullableListFilter<"User">
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     subscriptionId?: StringNullableFilter<"User"> | string | null
@@ -12462,6 +12475,7 @@ export namespace Prisma {
     status?: SortOrderInput | SortOrder
     timezone?: SortOrderInput | SortOrder
     stripe_customer_id?: SortOrderInput | SortOrder
+    times?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     subscriptionId?: SortOrderInput | SortOrder
@@ -12484,6 +12498,7 @@ export namespace Prisma {
     status?: BoolNullableWithAggregatesFilter<"User"> | boolean | null
     timezone?: StringNullableWithAggregatesFilter<"User"> | string | null
     stripe_customer_id?: StringNullableWithAggregatesFilter<"User"> | string | null
+    times?: StringNullableListFilter<"User">
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     subscriptionId?: StringNullableWithAggregatesFilter<"User"> | string | null
@@ -13062,6 +13077,7 @@ export namespace Prisma {
     status?: boolean | null
     timezone?: string | null
     stripe_customer_id?: string | null
+    times?: UserCreatetimesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
     subscriptionId?: string | null
@@ -13085,6 +13101,7 @@ export namespace Prisma {
     status?: boolean | null
     timezone?: string | null
     stripe_customer_id?: string | null
+    times?: UserCreatetimesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
     subscriptionId?: string | null
@@ -13108,6 +13125,7 @@ export namespace Prisma {
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timezone?: NullableStringFieldUpdateOperationsInput | string | null
     stripe_customer_id?: NullableStringFieldUpdateOperationsInput | string | null
+    times?: UserUpdatetimesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13131,6 +13149,7 @@ export namespace Prisma {
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timezone?: NullableStringFieldUpdateOperationsInput | string | null
     stripe_customer_id?: NullableStringFieldUpdateOperationsInput | string | null
+    times?: UserUpdatetimesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13154,6 +13173,7 @@ export namespace Prisma {
     status?: boolean | null
     timezone?: string | null
     stripe_customer_id?: string | null
+    times?: UserCreatetimesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
     subscriptionId?: string | null
@@ -13170,6 +13190,7 @@ export namespace Prisma {
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timezone?: NullableStringFieldUpdateOperationsInput | string | null
     stripe_customer_id?: NullableStringFieldUpdateOperationsInput | string | null
+    times?: UserUpdatetimesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13186,6 +13207,7 @@ export namespace Prisma {
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timezone?: NullableStringFieldUpdateOperationsInput | string | null
     stripe_customer_id?: NullableStringFieldUpdateOperationsInput | string | null
+    times?: UserUpdatetimesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13777,6 +13799,14 @@ export namespace Prisma {
     not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
   }
 
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
   export type SubscriptionNullableScalarRelationFilter = {
     is?: SubscriptionWhereInput | null
     isNot?: SubscriptionWhereInput | null
@@ -13848,6 +13878,7 @@ export namespace Prisma {
     status?: SortOrder
     timezone?: SortOrder
     stripe_customer_id?: SortOrder
+    times?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     subscriptionId?: SortOrder
@@ -14242,6 +14273,10 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSubscriptionInput, UserUpdateWithoutSubscriptionInput>, UserUncheckedUpdateWithoutSubscriptionInput>
   }
 
+  export type UserCreatetimesInput = {
+    set: string[]
+  }
+
   export type SubscriptionCreateNestedOneWithoutUserInput = {
     create?: XOR<SubscriptionCreateWithoutUserInput, SubscriptionUncheckedCreateWithoutUserInput>
     connectOrCreate?: SubscriptionCreateOrConnectWithoutUserInput
@@ -14348,6 +14383,11 @@ export namespace Prisma {
 
   export type NullableBoolFieldUpdateOperationsInput = {
     set?: boolean | null
+  }
+
+  export type UserUpdatetimesInput = {
+    set?: string[]
+    push?: string | string[]
   }
 
   export type SubscriptionUpdateOneWithoutUserNestedInput = {
@@ -14857,6 +14897,7 @@ export namespace Prisma {
     status?: boolean | null
     timezone?: string | null
     stripe_customer_id?: string | null
+    times?: UserCreatetimesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
     subscriptionId?: string | null
@@ -14879,6 +14920,7 @@ export namespace Prisma {
     status?: boolean | null
     timezone?: string | null
     stripe_customer_id?: string | null
+    times?: UserCreatetimesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
     subscriptionId?: string | null
@@ -14950,6 +14992,7 @@ export namespace Prisma {
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timezone?: NullableStringFieldUpdateOperationsInput | string | null
     stripe_customer_id?: NullableStringFieldUpdateOperationsInput | string | null
+    times?: UserUpdatetimesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -14972,6 +15015,7 @@ export namespace Prisma {
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timezone?: NullableStringFieldUpdateOperationsInput | string | null
     stripe_customer_id?: NullableStringFieldUpdateOperationsInput | string | null
+    times?: UserUpdatetimesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -14994,6 +15038,7 @@ export namespace Prisma {
     status?: boolean | null
     timezone?: string | null
     stripe_customer_id?: string | null
+    times?: UserCreatetimesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
     subscriptionId?: string | null
@@ -15016,6 +15061,7 @@ export namespace Prisma {
     status?: boolean | null
     timezone?: string | null
     stripe_customer_id?: string | null
+    times?: UserCreatetimesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
     subscriptionId?: string | null
@@ -15054,6 +15100,7 @@ export namespace Prisma {
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timezone?: NullableStringFieldUpdateOperationsInput | string | null
     stripe_customer_id?: NullableStringFieldUpdateOperationsInput | string | null
+    times?: UserUpdatetimesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15076,6 +15123,7 @@ export namespace Prisma {
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timezone?: NullableStringFieldUpdateOperationsInput | string | null
     stripe_customer_id?: NullableStringFieldUpdateOperationsInput | string | null
+    times?: UserUpdatetimesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15098,6 +15146,7 @@ export namespace Prisma {
     status?: boolean | null
     timezone?: string | null
     stripe_customer_id?: string | null
+    times?: UserCreatetimesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
     subscriptionId?: string | null
@@ -15120,6 +15169,7 @@ export namespace Prisma {
     status?: boolean | null
     timezone?: string | null
     stripe_customer_id?: string | null
+    times?: UserCreatetimesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
     subscriptionId?: string | null
@@ -15192,6 +15242,7 @@ export namespace Prisma {
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timezone?: NullableStringFieldUpdateOperationsInput | string | null
     stripe_customer_id?: NullableStringFieldUpdateOperationsInput | string | null
+    times?: UserUpdatetimesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15214,6 +15265,7 @@ export namespace Prisma {
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timezone?: NullableStringFieldUpdateOperationsInput | string | null
     stripe_customer_id?: NullableStringFieldUpdateOperationsInput | string | null
+    times?: UserUpdatetimesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15268,6 +15320,7 @@ export namespace Prisma {
     status?: boolean | null
     timezone?: string | null
     stripe_customer_id?: string | null
+    times?: UserCreatetimesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
     subscriptionId?: string | null
@@ -15290,6 +15343,7 @@ export namespace Prisma {
     status?: boolean | null
     timezone?: string | null
     stripe_customer_id?: string | null
+    times?: UserCreatetimesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
     subscriptionId?: string | null
@@ -15328,6 +15382,7 @@ export namespace Prisma {
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timezone?: NullableStringFieldUpdateOperationsInput | string | null
     stripe_customer_id?: NullableStringFieldUpdateOperationsInput | string | null
+    times?: UserUpdatetimesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15350,6 +15405,7 @@ export namespace Prisma {
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timezone?: NullableStringFieldUpdateOperationsInput | string | null
     stripe_customer_id?: NullableStringFieldUpdateOperationsInput | string | null
+    times?: UserUpdatetimesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15773,6 +15829,7 @@ export namespace Prisma {
     status?: boolean | null
     timezone?: string | null
     stripe_customer_id?: string | null
+    times?: UserCreatetimesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
     subscriptionId?: string | null
@@ -15795,6 +15852,7 @@ export namespace Prisma {
     status?: boolean | null
     timezone?: string | null
     stripe_customer_id?: string | null
+    times?: UserCreatetimesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
     subscriptionId?: string | null
@@ -15833,6 +15891,7 @@ export namespace Prisma {
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timezone?: NullableStringFieldUpdateOperationsInput | string | null
     stripe_customer_id?: NullableStringFieldUpdateOperationsInput | string | null
+    times?: UserUpdatetimesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15855,6 +15914,7 @@ export namespace Prisma {
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timezone?: NullableStringFieldUpdateOperationsInput | string | null
     stripe_customer_id?: NullableStringFieldUpdateOperationsInput | string | null
+    times?: UserUpdatetimesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15877,6 +15937,7 @@ export namespace Prisma {
     status?: boolean | null
     timezone?: string | null
     stripe_customer_id?: string | null
+    times?: UserCreatetimesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
     subscriptionId?: string | null
@@ -15899,6 +15960,7 @@ export namespace Prisma {
     status?: boolean | null
     timezone?: string | null
     stripe_customer_id?: string | null
+    times?: UserCreatetimesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
     subscriptionId?: string | null
@@ -15937,6 +15999,7 @@ export namespace Prisma {
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timezone?: NullableStringFieldUpdateOperationsInput | string | null
     stripe_customer_id?: NullableStringFieldUpdateOperationsInput | string | null
+    times?: UserUpdatetimesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15959,6 +16022,7 @@ export namespace Prisma {
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timezone?: NullableStringFieldUpdateOperationsInput | string | null
     stripe_customer_id?: NullableStringFieldUpdateOperationsInput | string | null
+    times?: UserUpdatetimesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15981,6 +16045,7 @@ export namespace Prisma {
     status?: boolean | null
     timezone?: string | null
     stripe_customer_id?: string | null
+    times?: UserCreatetimesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
     subscriptionId?: string | null
@@ -16003,6 +16068,7 @@ export namespace Prisma {
     status?: boolean | null
     timezone?: string | null
     stripe_customer_id?: string | null
+    times?: UserCreatetimesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
     subscriptionId?: string | null
@@ -16041,6 +16107,7 @@ export namespace Prisma {
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timezone?: NullableStringFieldUpdateOperationsInput | string | null
     stripe_customer_id?: NullableStringFieldUpdateOperationsInput | string | null
+    times?: UserUpdatetimesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -16063,6 +16130,7 @@ export namespace Prisma {
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timezone?: NullableStringFieldUpdateOperationsInput | string | null
     stripe_customer_id?: NullableStringFieldUpdateOperationsInput | string | null
+    times?: UserUpdatetimesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
