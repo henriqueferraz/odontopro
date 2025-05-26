@@ -67,7 +67,7 @@ export function SidebarDashboard({ children }: { children: React.ReactNode }) {
                         />
 
                         <SidebarLink
-                            href="/dashboard/service"
+                            href="/dashboard/services"
                             label="Serviços"
                             pathname={pathname}
                             isCollapsed={isColapsed}
@@ -106,7 +106,7 @@ export function SidebarDashboard({ children }: { children: React.ReactNode }) {
                             />
 
                             <SidebarLink
-                                href="/dashboard/service"
+                                href="/dashboard/services"
                                 label="Serviços"
                                 pathname={pathname}
                                 isCollapsed={isColapsed}

@@ -39,6 +39,9 @@ import { ArrowRight } from "lucide-react"
 import { useState } from "react"
 import { cn } from " @/lib/utils"
 import { Subscription, User } from " @/generated/prisma"
+import { updateProfile } from "../_actions/update-profile"
+import { toast } from "sonner"
+import { formatPhone } from " @/utils/formatPhone"
 
 
 interface ProfileContentProps {
@@ -87,11 +90,23 @@ export function ProfileContent({ user }: ProfileContentProps) {
     );
 
     async function onSubmit(values: ProfileFormData) {
-        const profilesData = {
-            ...values,
-            times: selectedHours
+
+        const response = await updateProfile({
+            name: values.name,
+            address: values.address,
+            phone: values.phone,
+            status: values.status === "active" ? true : false,
+            timeZone: values.timeZone,
+            times: selectedHours || []
+        })
+
+        if (response.error) {
+            toast.error(response.error)
+            return;
         }
-        console.log(profilesData);
+
+        toast.success(response.data);
+
     }
 
     return (
@@ -106,7 +121,7 @@ export function ProfileContent({ user }: ProfileContentProps) {
                             <div className="flex justify-center">
                                 <div className="bg-gray-200 relative h-40 w-40 rounded-full overflow-hidden">
                                     <Image
-                                        src={ImgTeste}
+                                        src={user.image ? user.image : ImgTeste}
                                         alt="Imagem de Teste"
                                         fill
                                         className="object-cover"
@@ -156,6 +171,10 @@ export function ProfileContent({ user }: ProfileContentProps) {
                                                 <Input
                                                     {...field}
                                                     placeholder="Digite o telefone da clínica"
+                                                    onChange={(e) => {
+                                                        const formattedValue = formatPhone(e.target.value);
+                                                        field.onChange(formattedValue);
+                                                    }}
                                                 />
                                             </FormControl>
                                             <FormMessage />
