@@ -16,15 +16,52 @@ import {
     FormMessage
 } from " @/components/ui/form";
 import { Input } from " @/components/ui/input";
+import { convertRealToCents } from " @/utils/convertCurrency";
+import { toast } from "sonner";
+import { createNewService } from "../_actions/create-service";
 import { DialogServiceFormData, UseDialogServiceForm } from "./service-dialog-form";
+import { useState } from "react";
 
-export function ServiceDialog() {
+
+interface ServiceDialogProps {
+    closeModal: () => void;
+}
+
+export function ServiceDialog({ closeModal }: ServiceDialogProps) {
 
     const form = UseDialogServiceForm()
+    const [loading, setLoading] = useState(false);
 
     async function onSubmit(values: DialogServiceFormData) {
-        console.log(values)
+        setLoading(true);
+        const priceInCents = convertRealToCents(values.price)
+        const hours = parseInt(values.hours) || 0;
+        const minutes = parseInt(values.minutes) || 0;
+
+        const duration = (hours * 60) + minutes;
+
+        const response = await createNewService({
+            name: values.name,
+            price: priceInCents,
+            duration: duration,
+        })
+
+        setLoading(false);
+
+        if (response.error) {
+            toast.error(response.error);
+            return;
+        }
+
+        toast.success("Serviço criado com sucesso!");
+        handleCloseModal();
     }
+
+    function handleCloseModal() {
+        form.reset();
+        closeModal();
+    }
+
 
     function changeCurrency(event: React.ChangeEvent<HTMLInputElement>) {
         let { value } = event.target;
@@ -129,8 +166,9 @@ export function ServiceDialog() {
                     <Button
                         type="submit"
                         className="w-full font-semibold text-white"
+                        disabled={loading}
                     >
-                        Adicionar serviço
+                        {loading ? "Cadastrando..." : "Adicionar serviço"}
                     </Button>
                 </form>
             </Form>
